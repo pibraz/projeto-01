@@ -13,8 +13,12 @@ public class Conta {
 
     @Column(unique = true)
     private String numero;
+
     private String tipo;
+
     private String agencia;
+
+    @Column (name = "limite_conta", precision = 13, scale = 2)
     private BigDecimal saldo;
 
     public Long getId() {

@@ -1,6 +1,7 @@
 package me.dio.projeto_01.domain.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -11,11 +12,13 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String name;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Conta conta;
 
+    @NotNull
     @OneToOne(cascade = CascadeType.ALL)
     private Cartao cartao;
 
