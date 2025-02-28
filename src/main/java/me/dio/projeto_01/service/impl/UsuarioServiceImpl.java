@@ -19,7 +19,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 
     @Override
     public Usuario findById(Long id) {
-        return null;
+        return usuarioRepository.findById(id).orElseThrow(NoSuchElementException::new);
     }
 
     @Override
