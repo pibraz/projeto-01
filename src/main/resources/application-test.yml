@@ -1,8 +1,10 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:dcl2025
-    username: dcl2025
+    url: jdbc:h2:mem:sdw2025
+    username: sdw2025
     password:
+    driver-class-name: org.h2.Driver
+
   jpa:
     show-sql: true
     open-in-view: false
@@ -11,6 +13,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
   h2:
     console:
       enabled: true
@@ -19,7 +22,12 @@ spring:
         trace: false
         web-allow-others: false
 
-# Definindo o perfil ativo como 'dev'
-spring:
-  profiles:
-    active: dev
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui/index.html
+
+server:
+  port: 8080

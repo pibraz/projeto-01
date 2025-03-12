@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '3.4.3'
+	id 'org.springframework.boot' version '3.4.2'
 	id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -15,25 +15,27 @@ java {
 
 repositories {
 	mavenCentral()
-	maven { url 'https://repo1.maven.org/maven2/' } // Repositório do Jakarta EE
 }
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.4'
 
-	// OpenAPI (Swagger)
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
+	// Dependência do PostgreSQL (com versão explícita)
+	implementation 'org.postgresql:postgresql:42.7.1'
+	runtimeOnly 'org.postgresql:postgresql:42.7.1' // Garante que o driver seja carregado corretamente
 
-	// Bean Validation
-	implementation 'jakarta.validation:jakarta.validation-api:3.0.2'
+	// Hibernate Validator (versão compatível com Spring Boot 3.x)
 	implementation 'org.hibernate.validator:hibernate-validator:8.0.1.Final'
-	implementation 'org.glassfish:jakarta.el:4.0.2' // Correção para EL
-
-	runtimeOnly 'com.h2database:h2'
-	runtimeOnly 'org.postgresql:postgresql'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+tasks.jar {
+	manifest {
+		attributes["Main-Class"] = "me.dio.projeto_01.Projeto01Application"
+	}
 }
 
 tasks.named('test') {
