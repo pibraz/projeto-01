@@ -43,3 +43,9 @@ classDiagram
 
 
 ```
+# IMAGENS DO PROJETO
+
+
+<img src="https://github.com/pibraz/projeto-01/blob/master/Captura de Tela (23).png">
+<img src="https://github.com/pibraz/projeto-01/blob/master/imagem_2025-03-12_170014361.png">
+
